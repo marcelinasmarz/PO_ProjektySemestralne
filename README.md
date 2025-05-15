@@ -65,12 +65,16 @@ musi być pierwszą instrukcją w konstruktorze
 musi być używana w klasie, która dziedziczy po innej klasie 
 KONTENERY 
 https://www.geeksforgeeks.org/collections-in-java-2/
+
 Arraylist/ lista 
+
 List<RaceCar> raceCars = new ArrayList<>();
 raceCars.add(new RaceCar("RWD", 700, 350.0f, 80.0f));
 raceCars.add(new RaceCar("AWD", 850, 400.0f, 90.0f));
+
 SET<>
 nieuporządkowana lista zawierająca tylko unikaty
+
 Set<String> raceCarBrands = new HashSet<>();
 raceCarBrands.add("Ferrari");
 raceCarBrands.add("Aston Martin");
