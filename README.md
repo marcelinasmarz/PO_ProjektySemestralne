@@ -1,1 +1,161 @@
 # PO_ProjektySemestralne
+Podsumowanie:
+Dziedziczenie:
+-dziedziczenie po klasie (extends)
+class Animal {
+    public void speak() {
+        System.out.println("Animal speaks");
+    }
+}
+
+class Dog extends Animal {
+    // Dog automatycznie ma metodę speak()
+}
+-implementowanie interfejsu:
+interface Walkable {
+    default void walk() {
+        System.out.println("Walking");
+    }
+}
+
+class Human implements Walkable {
+    // walk() już jest odziedziczone
+}
+-dziedziczenie metod abstrakcyjnych:
+tj dziedziczenie po klasie
+-przesyłanie metod za pomocą override (nadpisanie)
+class Animal {
+    public void speak() {
+        System.out.println("Generic animal");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void speak() {
+        System.out.println("Meow");
+    }
+}
+-metoda nadrzędna super 
+class Dog extends Animal {
+    @Override
+    public void speak() {
+        super.speak(); // wywołuje "Animal speaks"
+        System.out.println("Bark");
+    }
+}
+Metoda nadrzędna super()
+-wywołuje metody z nadklasy 
+-daje dostęp do pól z nadklas
+-wywołanie konstruktorów z nadklas
+class Animal {
+    Animal(String name) {
+        System.out.println("Animal: " + name);
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super("Reksio");  // wywołuje konstruktor Animal z argumentem "Reksio"
+        System.out.println("Dog created");
+    }
+}
+WAŻNE: 
+musi być pierwszą instrukcją w konstruktorze
+musi być używana w klasie, która dziedziczy po innej klasie 
+KONTENERY 
+https://www.geeksforgeeks.org/collections-in-java-2/
+Arraylist/ lista 
+List<RaceCar> raceCars = new ArrayList<>();
+raceCars.add(new RaceCar("RWD", 700, 350.0f, 80.0f));
+raceCars.add(new RaceCar("AWD", 850, 400.0f, 90.0f));
+SET<>
+nieuporządkowana lista zawierająca tylko unikaty
+Set<String> raceCarBrands = new HashSet<>();
+raceCarBrands.add("Ferrari");
+raceCarBrands.add("Aston Martin");
+raceCarBrands.add("Ford");
+
+
+Wyjątki 
+korzystamy ze słów try i catch
+
+zwykły try-catch
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int x = 10 / 0; // dzielenie przez zero
+        } catch (ArithmeticException e) {
+            System.out.println("Błąd: " + e.getMessage()); // Błąd: / by zero
+        }
+    }
+}
+z finally 
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String text = null;
+            text.length(); // NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("Błąd: null nie ma długości");
+        } finally {
+            System.out.println("Zawsze się wykonuje");
+        }
+    }
+}
+z throw 
+public class Main {
+    public static void validateAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Musisz mieć co najmniej 18 lat");
+        }
+    }
+
+    public static void main(String[] args) {
+        validateAge(16); // rzuci wyjątek
+    }
+}
+własny wyjątek czyli extends exception 
+
+class TooColdException extends Exception {
+    public TooColdException(String message) {
+        super(message);
+    }
+}
+
+public class Main {
+    public static void checkTemperature(int temp) throws TooColdException {
+        if (temp < 0) {
+            throw new TooColdException("Za zimno! Temperatura: " + temp);
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkTemperature(-5);
+        } catch (TooColdException e) {
+            System.out.println("Uwaga: " + e.getMessage());
+        }
+    }
+}
+Własny wyjątek niekontrolowany 
+class WrongPasswordException extends RuntimeException {
+    public WrongPasswordException(String message) {
+        super(message);
+    }
+}
+
+public class Main {
+    public static void login(String password) {
+        if (!password.equals("tajne")) {
+            throw new WrongPasswordException("Złe hasło!");
+        }
+    }
+
+    public static void main(String[] args) {
+        login("1234"); // rzuci wyjątek
+    }
+}
+
+
+-
