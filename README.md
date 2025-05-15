@@ -202,4 +202,17 @@ public class Dog {
  wywołanie :
  Dog dog = new Dog("Reksio");
 dog.bark(); //  działa na obiekcie
+Kiedy używać?
+-Użyj static, gdy:
+Metoda nie zależy od stanu obiektu
 
+Ma uniwersalne zastosowanie (np. Math.max())
+
+Chcesz stworzyć fabrykę, narzędzie, pomocnika (np. Utils.calculate())
+
+- Użyj dynamicznej, gdy:
+Metoda potrzebuje danych obiektu
+
+Używasz this, np. do modyfikacji pól
+
+Tworzysz zwykłe klasy i modele (np. Car.startEngine())
