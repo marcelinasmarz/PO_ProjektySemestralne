@@ -156,10 +156,50 @@ public class Main {
         }
     }
 
+
     public static void main(String[] args) {
         login("1234"); // rzuci wyjątek
     }
 }
 
+Metoda Statyczna:
+-należy do klasy, nie do obiektu
 
+-nie potrzebujesz new, żeby jej użyć
+
+-nie ma dostępu do this ani do pól instancyjnych (nie może używać zmiennych obiektowych)
 -
+public class MathUtils {
+    public static int square(int x) {
+        return x * x;
+    }
+}
+
+ wywołanie :
+ int result = MathUtils.square(5); 
+
+
+// Dynamiczna metoda:
+
+//-należy do obiektu klasy
+
+//-musisz utworzyć obiekt (new) żeby jej użyć
+
+//-może używać this, pól i innych metod obiektowych;
+
+
+public class Dog {
+    String name;
+
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    public void bark() {
+        System.out.println(name + " szczeka!");
+    }
+}
+ wywołanie :
+ Dog dog = new Dog("Reksio");
+dog.bark(); //  działa na obiekcie
+
