@@ -179,13 +179,13 @@ public class MathUtils {
  int result = MathUtils.square(5); 
 
 
-// Dynamiczna metoda:
+ Dynamiczna metoda:
 
-//-należy do obiektu klasy
+-należy do obiektu klasy
 
-//-musisz utworzyć obiekt (new) żeby jej użyć
+-musisz utworzyć obiekt (new) żeby jej użyć
 
-//-może używać this, pól i innych metod obiektowych;
+-może używać this, pól i innych metod obiektowych;
 
 
 public class Dog {
